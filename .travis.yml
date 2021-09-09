@@ -1,6 +1,5 @@
 language: ruby
-bundler_args: --jobs=2
+bundler_args: --jobs=1
 script:
-  - bundle exec rake db:setup
   - bundle exec rake spec
 cache: bundler
