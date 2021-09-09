@@ -1,4 +1,5 @@
 # README
+[![Build Status](https://app.travis-ci.com/CamBrown101/ruby-blog.svg?token=pG55qYoCMsfaZDY6FBxK&branch=master)](https://app.travis-ci.com/CamBrown101/ruby-blog)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
