@@ -1,5 +1,2 @@
 language: ruby
-bundler_args: --jobs=1
-script:
-  - bundle exec rake spec
-cache: bundler
+rvm: 3.0.2
