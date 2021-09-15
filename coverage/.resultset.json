@@ -49,6 +49,36 @@
         "branches": {
         }
       },
+      "/Users/cameronbrown/Documents/master-class-blog/app/controllers/posts_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
       "/Users/cameronbrown/Documents/master-class-blog/app/helpers/application_helper.rb": {
         "lines": [
           0,
@@ -88,8 +118,18 @@
         ],
         "branches": {
         }
+      },
+      "/Users/cameronbrown/Documents/master-class-blog/app/models/post.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
       }
     },
-    "timestamp": 1631228506
+    "timestamp": 1631740379
   }
 }
