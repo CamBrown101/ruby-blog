@@ -1,2 +1,4 @@
 codecov:
   token: 3e0a8965-6b3a-49df-a6fd-7b5c7f795106
+  ci:
+    - "travis.org"
