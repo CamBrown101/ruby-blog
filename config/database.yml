@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: master_class_blog_production
-  username: master_class_blog
-  password: <%= ENV['MASTER_CLASS_BLOG_DATABASE_PASSWORD'] %>
+  # username: master_class_blog
+  # password: <%= ENV['MASTER_CLASS_BLOG_DATABASE_PASSWORD'] %>
