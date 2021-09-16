@@ -36,3 +36,7 @@
 yarn-debug.log*
 .yarn-integrity
 coverage/.resultset.json
+coverage/codecov-result.json
+coverage/index.html
+coverage/.last_run.json
+coverage/
