@@ -1,4 +1,3 @@
-# codecov:
-#   token: 847a0712-197c-4459-a4de-a5362e87d7af
-# ci:
+codecov:
+  token: 847a0712-197c-4459-a4de-a5362e87d7af# ci:
 #   - "travis.org"
