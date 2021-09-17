@@ -25,4 +25,4 @@ cache:
 script: bundle exec rake
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-  - ./codecov -t ${CODECOV_TOKEN}
+  - ./codecov
