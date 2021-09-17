@@ -3,5 +3,4 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
 script: bundle exec rake
 
-rvm: 3.0.2curl --data-binary @codecov.yml https://codecov.io/validate
-# codecov: true
+rvm: 3.0.2
