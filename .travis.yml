@@ -8,5 +8,10 @@ install:
   - node -v
   - npm i -g yarn
   - yarn
+cache:
+  bundler: true
+  directories:
+    - node_modules
+  yarn: true
 script: bundle exec rake
 rvm: 3.0.2
