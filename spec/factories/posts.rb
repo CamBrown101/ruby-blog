@@ -3,11 +3,11 @@ FactoryBot.define do
     title "This is a title"
     body "This is the body"
 
-    factory :post_with_invalid_title do
+    trait :invalid_title do
       title ""
     end
 
-    factory :post_with_invalid_body do
+    trait :invalid_body do
       body ""
     end
   end
