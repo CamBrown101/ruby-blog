@@ -21,4 +21,10 @@ describe Post, type: :model do
         post.valid?
     expect(post.errors[:body]).to include("can't be blank")
   end
+
+  it "is invalid without a body and title" do
+    post = FactoryBot.build(:post, :invalid_body, :invalid_title)
+        post.valid?
+    expect(post.errors[:body]).to include("can't be blank")
+  end
 end
