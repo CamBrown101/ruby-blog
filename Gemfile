@@ -35,6 +35,8 @@ group :development, :test do
   gem 'simplecov', require: false
   gem 'codecov', :require => false
   gem 'simplecov-json', :require => false
+  gem 'capybara', '~> 2.15.2'
+  gem 'launchy', '~> 2.4.3'
 end
 
 group :development do
@@ -46,7 +48,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  
   gem 'spring-commands-rspec'
 end
 
