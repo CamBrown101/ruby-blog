@@ -2,15 +2,17 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
     describe "#new" do
-        let(:post_params) { FactoryBot.attributes_for(:post) }
-        it "responds successfully" do
-            post :new, params: { post: post_params }
-            expect(response).to be_successful
-        end
+        context "with valid attributes" do
+            let(:post_params) { FactoryBot.attributes_for(:post) }
+            it "responds successfully" do
+                post :new, params: { post: post_params }
+                expect(response).to be_successful
+            end
 
-        it "returns a 200" do
-            post :new, params: { post: post_params }
-            expect(response).to have_http_status "200"
+            it "returns a 200" do
+                post :new, params: { post: post_params }
+                expect(response).to have_http_status "200"
+            end
         end
     end
 
@@ -76,7 +78,7 @@ RSpec.describe PostsController, type: :controller do
         end
 
         context "with invalid attributes" do
-            it "returns a 404" do
+            it "throws an error" do
                 @post = FactoryBot.create(:post)
                 expect{
                     get :show, params: { id: nil }
