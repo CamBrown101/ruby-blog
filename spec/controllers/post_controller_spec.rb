@@ -17,14 +17,13 @@ RSpec.describe PostsController, type: :controller do
 
     describe "#create" do
         context "with valid attributes" do
+            let(:post_params) { FactoryBot.attributes_for(:post) }
             it "returns a 302" do
-                post_params = FactoryBot.attributes_for(:post)
                 post :create, params: { post: post_params }
                 expect(response).to have_http_status "302"
             end
 
             it "redirects correctly" do
-                post_params = FactoryBot.attributes_for(:post)
                 post :create, params: {post: post_params}
                 @post = Post.last
                 expect(response).to redirect_to(post_path @post.id)
