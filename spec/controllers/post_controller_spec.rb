@@ -24,20 +24,47 @@ RSpec.describe PostsController, type: :controller do
             end
 
             it "redirects correctly" do
-                @post = FactoryBot.create(:post)
                 post_params = FactoryBot.attributes_for(:post)
                 post :create, params: {post: post_params}
-                expect(response).to redirect_to(post_path @post.id + 1)
+                @post = Post.last
+                expect(response).to redirect_to(post_path @post.id)
+            end
+
+            it "add a new post" do
+                post_params = FactoryBot.attributes_for(:post)
+                expect{
+                    post :create, params: {post: post_params}
+                }.to change(Post, :count).by(1)
             end
         end
 
         context "with invalid attributes" do
-            it "does not redirect" do
-                @post = FactoryBot.create(:post)
-                post_params = FactoryBot.attributes_for(:post, :invalid_title)
-                post :create, params: {post: post_params}
-                expect(response).to_not redirect_to(post_path @post.id + 1)
+            context "without title" do
+                let(:post_params) { FactoryBot.attributes_for(:post, title: nil) }
+                it "does not redirect" do
+                    post :create, params: {post: post_params}
+                    expect(response).to have_http_status "200"
+                end
+
+                it "renders new template" do
+                    post :create, params: {post: post_params}
+                    expect(response).to render_template(:new)
+                end
             end
+
+            context "without body" do
+                let(:post_params) { FactoryBot.attributes_for(:post, body: nil) }
+                it "does not redirect" do
+                    post :create, params: {post: post_params}
+                    expect(response).to have_http_status "200"
+                end
+
+                it "renders new template" do
+                    post :create, params: {post: post_params}
+                    expect(response).to render_template(:new)
+                end
+            end
+
         end
     end
 
