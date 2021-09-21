@@ -2,14 +2,13 @@ require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
     describe "#new" do
+        let(:post_params) { FactoryBot.attributes_for(:post) }
         it "responds successfully" do
-            post_params = FactoryBot.attributes_for(:post)
             post :new, params: { post: post_params }
             expect(response).to be_successful
         end
 
         it "returns a 200" do
-            post_params = FactoryBot.attributes_for(:post)
             post :new, params: { post: post_params }
             expect(response).to have_http_status "200"
         end
@@ -68,10 +67,21 @@ RSpec.describe PostsController, type: :controller do
     end
 
     describe "#show" do
-        it "returns a 200" do
-            @post = FactoryBot.create(:post)
-            get :show, params: { id: @post.id }
-            expect(response).to have_http_status "200"
+        context "with valid attributes" do
+            it "returns a 200" do
+                @post = FactoryBot.create(:post)
+                get :show, params: { id: @post.id }
+                expect(response).to have_http_status "200"
+            end
+        end
+
+        context "with invalid attributes" do
+            it "returns a 404" do
+                @post = FactoryBot.create(:post)
+                expect{
+                    get :show, params: { id: nil }
+                }.to raise_error(ActionController::UrlGenerationError)
+            end
         end
     end
 end
