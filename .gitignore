@@ -31,9 +31,12 @@
 /public/packs
 /public/packs-test
 /node_modules
+/coverage/*
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
-
-
-echo "coverage" >> .gitignore
+coverage/.resultset.json
+coverage/codecov-result.json
+coverage/index.html
+coverage/.last_run.json
+coverage/
