@@ -1,6 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+    describe "#index" do
+        it "responds successfully" do
+            get :index
+            expect(response).to be_successful
+        end
+        
+        it "returns a 200" do
+            get :index
+            expect(response).to have_http_status "200"
+        end
+
+        it "renders post index template" do
+            get :index
+            expect(response).to render_template(:index)
+        end
+    end
+
     describe "#new" do
         context "with valid attributes" do
             let(:post_params) { FactoryBot.attributes_for(:post) }
