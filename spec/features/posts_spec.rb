@@ -17,9 +17,17 @@ RSpec.feature "Posts", type: :feature do
     expect(page).to have_content "can't be blank"
   end
 
-  # scenario "user can view all posts" do
-  #   @post = FactoryBot.build(:post)
-  #   visit "/posts"
-  #   expect(page).to have_content @post.title
-  # end
+  scenario "user can view all posts" do
+    visit "/posts/new"
+    fill_in "Title", with: "Hello"
+    fill_in "Body", with: "World"
+    click_button "Create Post"
+    visit "/posts/new"
+    fill_in "Title", with: "Hello"
+    fill_in "Body", with: "World"
+    click_button "Create Post"
+    visit "/posts"
+    expect(page).to have_content "Hello"
+    expect(page).to have_content "World"
+  end
 end
