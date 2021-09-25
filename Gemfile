@@ -39,7 +39,7 @@ group :development, :test do
   gem 'capybara', '~> 2.15.2'
   gem 'launchy', '~> 2.4.3'
   gem 'rails-controller-testing'
-  gem 'faker'
+  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 end
 
 group :development do

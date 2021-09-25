@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 45cb8e87fc199cd72e4122d8ae75a1808b7b3ba3
+  branch: master
+  specs:
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -88,8 +96,6 @@ GEM
     factory_bot_rails (4.10.0)
       factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
     faraday (0.17.4)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.14.0)
@@ -275,7 +281,7 @@ DEPENDENCIES
   capybara (~> 2.15.2)
   codecov
   factory_bot_rails (~> 4.10.0)
-  faker
+  faker!
   jbuilder (~> 2.7)
   launchy (~> 2.4.3)
   listen (~> 3.3)
