@@ -19,7 +19,7 @@ RSpec.feature "Posts", type: :feature do
 
   scenario "user can view all posts" do
     post_one = FactoryBot.create(:post)
-    post_two = FactoryBot.create(:post, title: "foo", body: "bar" )
+    post_two = FactoryBot.create(:post)
     visit "/posts"
     expect(page).to have_content post_one.title
     expect(page).to have_content post_one.body

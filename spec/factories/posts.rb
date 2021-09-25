@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :post do
-    title "This is a title"
-    body "This is the body"
+    title { Faker::Book.title }
+    body { Faker::Quote}
 
     trait :invalid_title do
       title ""
