@@ -18,16 +18,12 @@ RSpec.feature "Posts", type: :feature do
   end
 
   scenario "user can view all posts" do
-    visit "/posts/new"
-    fill_in "Title", with: "Hello"
-    fill_in "Body", with: "World"
-    click_button "Create Post"
-    visit "/posts/new"
-    fill_in "Title", with: "Hello"
-    fill_in "Body", with: "World"
-    click_button "Create Post"
+    post_one = FactoryBot.create(:post)
+    post_two = FactoryBot.create(:post, title: "foo", body: "bar" )
     visit "/posts"
-    expect(page).to have_content "Hello"
-    expect(page).to have_content "World"
+    expect(page).to have_content post_one.title
+    expect(page).to have_content post_one.body
+    expect(page).to have_content post_two.title
+    expect(page).to have_content post_two.body
   end
 end
