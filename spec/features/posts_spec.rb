@@ -25,11 +25,24 @@ RSpec.feature "Posts", type: :feature do
     expect_post_onpage post_one
     expect_post_onpage post_two
   end
+
+  scenario "user can view a single post" do
+    visit post_path post_one.id
+    expect_post_onpage post_one
+    expect_post_not_onpage post_two
+  end
 end
 
 def expect_post_onpage(post)
   aggregate_failures do
     expect(page).to have_content post.title
     expect(page).to have_content post.body
+  end
+end
+
+def expect_post_not_onpage(post)
+  aggregate_failures do
+    expect(page).to_not have_content post.title
+    expect(page).to_not have_content post.body
   end
 end
