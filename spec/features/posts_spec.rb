@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature "Posts", type: :feature do
+  let!(:post_one) { FactoryBot.create(:post) }
+  let!(:post_two) { FactoryBot.create(:post) }
+
   scenario "user creates a new post" do
     visit "/posts/new"
     fill_in "Title", with: "Hello"
@@ -18,8 +21,6 @@ RSpec.feature "Posts", type: :feature do
   end
 
   scenario "user can view all posts" do
-    post_one = FactoryBot.create(:post)
-    post_two = FactoryBot.create(:post)
     visit "/posts"
     expect_post_onpage post_one
     expect_post_onpage post_two
