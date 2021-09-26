@@ -4,12 +4,10 @@ RSpec.describe MainController, type: :controller do
   describe "#index" do
     it "responds successfully" do
       get :index
-      expect(response).to be_successful
-    end
-
-    it "returns a 200 response" do
-      get :index
-      expect(response).to have_http_status "200"
+      aggregate_failures do
+        expect(response).to have_http_status "200"
+        expect(response).to be_successful
+      end
     end
   end
 end
