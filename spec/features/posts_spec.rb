@@ -21,9 +21,14 @@ RSpec.feature "Posts", type: :feature do
     post_one = FactoryBot.create(:post)
     post_two = FactoryBot.create(:post)
     visit "/posts"
-    expect(page).to have_content post_one.title
-    expect(page).to have_content post_one.body
-    expect(page).to have_content post_two.title
-    expect(page).to have_content post_two.body
+    expect_post_onpage post_one
+    expect_post_onpage post_two
+  end
+end
+
+def expect_post_onpage(post)
+  aggregate_failures do
+    expect(page).to have_content post.title
+    expect(page).to have_content post.body
   end
 end
