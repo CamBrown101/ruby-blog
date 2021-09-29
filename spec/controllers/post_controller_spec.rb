@@ -100,7 +100,7 @@ RSpec.describe PostsController, type: :controller do
 
     describe "#show" do
       context "with valid attributes" do
-        it "returns a 200 with post id" do
+        it "returns a 200 with URL post/id" do
           @post = FactoryBot.create(:post)
           get :show, params: { id: @post.id }
           aggregate_failures do
@@ -109,7 +109,7 @@ RSpec.describe PostsController, type: :controller do
           end
         end
 
-        it "returns a 200 with post slug" do
+        it "returns a 200 with URL post/slug" do
           @post = FactoryBot.create(:post)
           get :show, params: { id: @post.slug }
           aggregate_failures do
