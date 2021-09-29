@@ -40,6 +40,7 @@ group :development, :test do
   gem 'launchy', '~> 2.4.3'
   gem 'rails-controller-testing'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'friendly_id', '~> 5.4.0'
 end
 
 group :development do
@@ -51,7 +52,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-commands-rspec'
-  gem 'friendly_id', '~> 5.4.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
