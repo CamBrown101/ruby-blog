@@ -2,10 +2,10 @@ rvm: 3.0.2
 language: ruby
 dist: focal
 addons:
-  postgresql: "9.4"
+  postgresql: "13"
   apt:
     packages:
-      - postgresql-9.4
+      - postgresql-13
 before_script:
   - bundle exec rake db:create db:migrate RAILS_ENV=test
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
