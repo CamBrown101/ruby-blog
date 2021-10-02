@@ -10,6 +10,7 @@ before_script:
   - ./cc-test-reporter before-build
   - curl -Os https://uploader.codecov.io/latest/linux/codecov
   - chmod +x codecov
+
   # Used if we have javascript on the front end
   # - bundle exec rails webpacker:compile
 install:
