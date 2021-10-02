@@ -1,5 +1,6 @@
 rvm: 3.0.2
 language: ruby
+dist: focal
 addons:
   postgresql: "9.4"
 before_script:
