@@ -121,6 +121,14 @@ RSpec.describe PostsController, type: :controller do
 
   describe "#destroy" do
     context "with valid attributes" do
+      it "redirects correctly" do
+        @post = FactoryBot.create(:post)
+        delete :destroy, params: {id: @post.id}
+        aggregate_failures do
+          expect(response).to have_http_status "302"
+        end
+      end
+
       it "changes count by -1" do
         @post = FactoryBot.create(:post)
         expect {
