@@ -94,13 +94,12 @@ RSpec.describe PostsController, type: :controller do
           }.to_not change(Post, :count)
         end
       end
-
-        end
     end
+  end
 
-    describe "#show" do
-      context "with valid attributes" do
-        it "returns a 200" do
+  describe "#show" do
+    context "with valid attributes" do
+        it "returns successfully" do
           @post = FactoryBot.create(:post)
           get :show, params: { id: @post.id }
           aggregate_failures do
@@ -110,13 +109,33 @@ RSpec.describe PostsController, type: :controller do
         end
       end
 
-      context "with invalid attributes" do
-        it "throws an error" do
-          @post = FactoryBot.create(:post)
-          expect{
-            get :show, params: { id: nil }
-          }.to raise_error(ActionController::UrlGenerationError)
-        end
+    context "with invalid attributes" do
+      it "throws an error" do
+        @post = FactoryBot.create(:post)
+        expect {
+          get :show, params: { id: nil }
+        }.to raise_error(ActionController::UrlGenerationError)
       end
     end
+  end
+
+  describe "#destroy" do
+    context "with valid attributes" do
+      it "changes count by -1" do
+        @post = FactoryBot.create(:post)
+        expect {
+          delete :destroy, params: {id: @post.id}
+        }.to change(Post, :count).by(-1)
+      end
+    end
+
+    context "with invalid attributes" do
+      it "does not change count" do
+        @post = FactoryBot.create(:post)
+        expect {
+          delete :destroy, params: {id: nil}
+        }.to raise_error(ActionController::UrlGenerationError)
+      end
+    end
+  end
 end
