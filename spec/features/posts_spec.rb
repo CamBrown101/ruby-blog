@@ -26,8 +26,14 @@ RSpec.feature "Posts", type: :feature do
     expect_post_onpage post_two
   end
 
-  scenario "user can view a single post" do
+  scenario "user can view a single post using the posts id" do
     visit post_path post_one.id
+    expect_post_onpage post_one
+    expect_post_not_onpage post_two
+  end
+
+  scenario "user can view a single post using the posts slug" do
+    visit post_path "#{post_one.id}-#{post_one.slug}"
     expect_post_onpage post_one
     expect_post_not_onpage post_two
   end
