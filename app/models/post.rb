@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :title, presence: true
+  validates :title, uniqueness: true, presence: true
   validates :body, presence: true
   after_validation :set_slug, only: [:create]
 
