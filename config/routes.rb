@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   get "hello_world", to: "hello#index"
 
   root "main#index"
-  resources :posts, only: [:new, :create, :show, :index]
+  resources :posts, only: [:new, :create, :show, :index, :destroy]
 end
