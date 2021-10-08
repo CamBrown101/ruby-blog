@@ -39,7 +39,7 @@ RSpec.describe PostsController, type: :controller do
         @post = Post.last
         aggregate_failures do
           expect(response).to have_http_status "302"
-          expect(response).to redirect_to(post_path @post.id)
+          expect(response).to redirect_to(post_path "#{@post.id}-#{@post.slug}")
         end
       end
 
