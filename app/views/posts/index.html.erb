@@ -5,6 +5,7 @@
     <th>Title</th>
     <th>Body</th>
     <th>URL</th>
+    <th>Delete</th>
   </thead>
   <tbody>
     <% @posts.each do |post| %>
@@ -12,6 +13,7 @@
         <td><%= link_to post.title , post_path(post)%></td>
         <td><%= post.body %></td>
         <td><%= "#{post.id}-#{post.slug}" %></td>
+        <td><%= link_to "Delete", post_path(post), method: :delete %></td>
       </tr>
     <% end %>
   </tbody>

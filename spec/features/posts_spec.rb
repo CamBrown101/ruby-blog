@@ -37,6 +37,13 @@ RSpec.feature "Posts", type: :feature do
     expect_post_onpage post_one
     expect_post_not_onpage post_two
   end
+
+  scenario "user can delete a single post" do
+    visit "/posts"
+    click_link('Delete', match: :first)
+    expect_post_not_onpage post_one
+    expect_post_onpage post_two
+  end
 end
 
 def expect_post_onpage(post)
