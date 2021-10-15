@@ -39,7 +39,7 @@ RSpec.describe PostsController, type: :controller do
         @post = Post.last
         aggregate_failures do
           expect(response).to have_http_status "302"
-          expect(response).to redirect_to(post_path @post.id)
+          expect(response).to redirect_to(post_path "#{@post.id}-#{@post.slug}")
         end
       end
 
@@ -102,6 +102,15 @@ RSpec.describe PostsController, type: :controller do
         it "returns successfully" do
           @post = FactoryBot.create(:post)
           get :show, params: { id: @post.id }
+          aggregate_failures do
+            expect(response).to be_successful
+            expect(response).to have_http_status "200"
+          end
+        end
+
+        it "returns a 200 with slug" do
+          @post = FactoryBot.create(:post)
+          get :show, params: { id: "#{@post.id}-#{@post.slug}" }
           aggregate_failures do
             expect(response).to be_successful
             expect(response).to have_http_status "200"
