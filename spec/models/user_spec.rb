@@ -41,5 +41,4 @@ describe User, type: :model do
     user.valid?
     expect(user.errors[:email]).to include("Invalid email")
   end
-
 end
