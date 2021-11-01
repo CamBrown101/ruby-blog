@@ -7,6 +7,7 @@ addons:
     packages:
       - postgresql-13
 before_script:
+  - bundle exec rails webpacker:compile
   - bundle exec rake db:create db:migrate RAILS_ENV=test
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
@@ -15,7 +16,6 @@ before_script:
   - chmod +x codecov
 
   # Used if we have javascript on the front end
-  - bundle exec rails webpacker:compile
 install:
   - bundle install
   - nvm install node
