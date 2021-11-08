@@ -34,20 +34,20 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   host = ENV['EMAIL_HOST'] #replace with your own url
   config.action_mailer.default_url_options = { host: host }
+
   config.action_mailer.smtp_settings = {
     user_name: ENV["SES_SMTP_USERNAME"],
     password: ENV["SES_SMTP_PASSWORD"],
-    domain: ENV['EMAIL_HOST'],
     address: ENV['AWS_SERVER'],
     port: '587',
-    authentication: "plain",
+    authentication: "login",
     enable_starttls_auto: true
   }
 
