@@ -39,16 +39,16 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
-  host = ENV['localhost:3000'] #replace with your own url
+  host = ENV['EMAIL_HOST'] #replace with your own url
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.smtp_settings = {
-    user_name:      => ENV['EMAIL'],
-    password:       => ENV['PASSWORD'],
-    domain:         => ENV['localhost:3000'],
-    address:        => 'smtp.gmail.com',
-    port:           => '587',
-    authentication: => "plain",
-    enable_starttls_auto: => true
+    user_name: ENV["SES_SMTP_USERNAME"],
+    password: ENV["SES_SMTP_PASSWORD"],
+    domain: ENV['EMAIL_HOST'],
+    address: ENV['AWS_SERVER'],
+    port: '587',
+    authentication: "plain",
+    enable_starttls_auto: true
   }
 
   # Print deprecation notices to the Rails logger.
