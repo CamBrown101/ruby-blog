@@ -43,6 +43,9 @@ jobs:
           PGPASSWORD: postgres
         run: bundle exec rails db:setup
 
+      - name: Run Webpack
+        run: bin/rake webpacker:compile
+
       - name: Run Tests
         env:
           RAILS_ENV: test
