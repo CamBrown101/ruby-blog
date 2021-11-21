@@ -42,3 +42,14 @@ jobs:
           PGUSER: postgres
           PGPASSWORD: postgres
         run: bundle exec rails db:setup
+
+      - name: Run Tests
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
+          PGPASSWORD: postgres
+        run: bin/rspec
+
+      - name: Upload Coverage Report to Codecov
+        uses: codecov/codecov-action@v2
