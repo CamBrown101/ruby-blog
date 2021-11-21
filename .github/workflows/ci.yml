@@ -41,3 +41,4 @@ jobs:
           PGHOST: localhost
           PGUSER: postgres
           PGPASSWORD: postgres
+        run: bundle exec rails db:setup
