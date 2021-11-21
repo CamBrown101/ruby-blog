@@ -44,7 +44,7 @@ jobs:
         run: bundle exec rails db:setup
 
       - name: Run Webpack
-        run: bin/rake webpacker:compile
+        run: bundle exec rake webpacker:compile
 
       - name: Run Tests
         env:
