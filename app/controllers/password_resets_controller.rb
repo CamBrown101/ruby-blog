@@ -1,11 +1,8 @@
 class PasswordResetsController < ApplicationController
   def new; end
   def create
-    @user = User.find_by(email: params[:email])
-    if @user
-      @user.generate_password_reset_token!
-      PasswordMailer.with(user: @user).reset.deliver_now
-    end
+    user = User.find_by(email: params[:email])
+    SendPasswordReset.(user) if user
     redirect_to root_path, notice: 'Please check your email to reset the password'
   end
 

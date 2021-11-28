@@ -6,6 +6,7 @@ class PasswordMailer < ApplicationMailer
     @token = params[:user].reset_password_token
 
     # sends email
+    puts params[:user].email
     mail to: params[:user].email
   end
 end
