@@ -40,6 +40,8 @@ group :development, :test do
   gem 'launchy', '~> 2.4.3'
   gem 'rails-controller-testing'
   gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'pry', '~> 0.13.1'
+  gem 'pry-byebug'
 end
 
 group :development do

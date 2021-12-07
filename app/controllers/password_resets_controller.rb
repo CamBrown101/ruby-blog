@@ -10,6 +10,7 @@ class PasswordResetsController < ApplicationController
     # finds user with a valid token
     @user = User.find_by(reset_password_token: params[:token])
     # rescue ActiveSupport::MessageVerifier::InvalidSignature
+    puts @user.inspect
     unless @user.password_token_valid?
       redirect_to sign_in_path, alert: 'Your token has expired. Please try again.'
     end
@@ -17,7 +18,8 @@ class PasswordResetsController < ApplicationController
 
   def update
     # updates user's password
-    @user = User.find_by_reset_password_token(params[:token])
+    binding.pry
+    @user = User.find_by(reset_password_token: params[:token])
     if @user.reset_password(password_params)
       redirect_to sign_in_path, notice: 'Your password was reset successfully. Please sign in'
     else

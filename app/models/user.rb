@@ -11,13 +11,19 @@ class User < ApplicationRecord
   end
 
   def password_token_valid?
-    (self.reset_password_sent_at + 4.hours) > Time.now.utc
+    (self.reset_password_sent_at + 4.hours) < Time.now.utc
   end
 
   def reset_password(params)
-    return false unless params[:password] == params[:password_confirmation]
-    self.reset_password_token = nil
-    self.password = password
-    self.save
+    pp params[:password]
+    pp params[:password_confirmation]
+    
+    if params[:password] == params[:password_confirmation]
+      self.reset_password_token = nil
+      self.password = password
+      self.save
+    else
+      false
+    end
   end
 end

@@ -7,6 +7,15 @@ class Post < ApplicationRecord
     "#{id}-#{slug}"
   end
 
+  def buzz=(value)
+    @buzz = value
+  end
+  def buzz
+    @buzz
+  end
+  def +(value)
+    @buzz + 1
+  end
   private
 
   def set_slug
